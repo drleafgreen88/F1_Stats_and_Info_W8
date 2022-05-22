@@ -25,12 +25,13 @@ header > hgroup {
 }
 
 .pop_up{
+  color: white;
   display: none;
-  position: fixed; /*will display in the same place*/
+  position: relative; /*will display in the same place*/
   top: 25%; /*offsets position*/
   left: 25%;
   width: 50%; /*gives a fixed div size*/
   height: 50%;
-  background-color: blueviolet;
+  background-color: dodgerblue;
   border: 3px solid black;
 }

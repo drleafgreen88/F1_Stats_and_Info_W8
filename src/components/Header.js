@@ -11,7 +11,7 @@ const Header = ({user}) => {
         <header>
             <hgroup>
                 <h1>Formula One</h1>
-                <h4>Season Summaries</h4>
+                <h3>Stats and Information</h3>
             </hgroup>
             <div id="user-info">
                 <h3>Welcome back {user.name}!</h3>

@@ -1,30 +1,42 @@
 import React from 'react';
+import Driver from './Driver';
+import Constructor from './Constructor';
 
-const Season = ({year, total_rounds, winner}) => {
+const Season = ({ year, total_rounds, winner, constructor }) => {
 
-    // const handleClick = function(){
-    //     onSeasonClick(season_url);
-    // }
+    const showDriverPopup = function () {
+        Array.from(document.getElementsByClassName("pop_up")).forEach(element => { element.style.display = "none" });
+        document.getElementById(year).style.display = "block";
+    }
 
+    const showConstructorPopup = function () {
+        Array.from(document.getElementsByClassName("pop_up")).forEach(element => { element.style.display = "none" });
+        document.getElementById(year + constructor.name).style.display = "block";
+    }
 
-    // const driverStandings = function () {
-    //     fetch("https://ergast.com/api/f1/"+year+"/driverStandings.json?limit=50")
-    //     .then(response => response.json())
-    //     .then(drivers => console.log(drivers.MRData.StandingsTable.DriverStandings));
-    // }
-
-
-    // return <li onSeasonClick = {handleClick}>{year} <br/>{season_url}</li>
+    const closePopUp = function (event) {
+        event.target.parentElement.style.display = "none";
+    }
 
     return <div class="season_results">
-        {year}
-        <br/>
-        {total_rounds}
-        <br/>
-        {winner.familyName}
-        {/* <a href={season_url} target="blank">Season Recap</a> */}
-        <div id={year.toString()} class="pop_up"><p>POP UP</p></div>
-    </div> 
+        <u>{year}</u>
+        <br />
+        Number of Rounds: {total_rounds}
+        <br />
+        Driver Champion: {winner.givenName + ' ' + winner.familyName}
+        <button onClick={showDriverPopup}>Driver Information</button>
+        <br />
+        Constructor Champion: {constructor.name}
+        <button onClick={showConstructorPopup}>Constructor Information</button>
+        <div id={year.toString()} class="pop_up">
+            <Driver winner={winner}/>
+            <button onClick={closePopUp}>Close Me!</button>
+        </div>
+        <div id={year.toString() + constructor.name} class="pop_up">
+            <Constructor constructor={constructor}/>
+            <button onClick={closePopUp}>Close Me!</button>
+        </div>
+    </div>
 }
 
 
