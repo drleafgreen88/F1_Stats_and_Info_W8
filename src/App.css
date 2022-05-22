@@ -43,11 +43,9 @@ header > hgroup {
   display: grid;
   width: 20%;
   height: 300px;
-  margin: 5px;
+  margin: 1%;
   grid-column: auto;
   grid-gap: 10px;
-  /* grid-template-columns: auto auto auto; */
-  /* grid-template-rows: auto auto auto; */
   float:left;
   padding: 20px;
   justify-content: space-evenly;
@@ -61,13 +59,15 @@ a {
   color: white;
 }
 
-/* .details{
-  float: left; 
-  top: 25%; 
-  left: 25%;
-  width: 50%; 
-  height: 50%;
-  background-color: lightcyan;
-  opacity: 100%;
-  color: black;
-} */
+p.kimi {
+  text-align: center;
+  font-size: xx-large;
+  
+}
+
+button.kimi {
+  margin-top: 2%;
+  margin-left: 45%;
+  padding: 20px;
+}
+
