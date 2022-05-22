@@ -7,10 +7,8 @@ import { useModal } from '../hooks/useModal';
 
 const MainContainer = () => {
 
-    const [user, setUser] = useState({
-        name: ('Kimi Raikkonen'),
-        email: ('Iceman@F1.com'),
-    })
+    const [name, setName] = useState('F1 Fan')
+    const [email, setEmail] = useState('F1Fan@F1.com');
 
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(null);
@@ -40,8 +38,12 @@ const MainContainer = () => {
         setSelectedSeason(season);
     }
 
-    const handleUserChange = (event) => {
-        setUser(event.target.value)
+    const handleNameChange = (event) => {
+        setName(event.target.value)
+    }
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value)
     }
 
     const {isModalOpen, toggleModal} = useModal()
@@ -49,21 +51,21 @@ const MainContainer = () => {
 
     return (
         <>
-            <Modal
+            <Modal id="modal"
                 isOpen={isModalOpen}
                 ariaHideApp={false}
                 contentLabel="User options"
             >
                 <label htmlFor='name'>Your name: </label>
-                <input type="text" name="name" placeholder={user.name} onChange={handleUserChange} />
+                <input type="text" name="name" placeholder={name} onChange={handleNameChange} />
                 <label htmlFor='email'>Your email: </label>
-                <input type="text" email="email" placeholder={user.email} onChange={handleUserChange} />
+                <input type="text" email="email" placeholder={email} onChange={handleEmailChange} />
                 <br></br>
                 <button onClick={toggleModal}>OK</button>
             </Modal>
 
-            <UserContext.Provider value={{ user, setUser }}>
-                <Header user={user} />
+            <UserContext.Provider value={{ name, email }}>
+                <Header name={name} email={email}/>
                 <SeasonsContainer seasons={seasons} />
             </UserContext.Provider>
         </>

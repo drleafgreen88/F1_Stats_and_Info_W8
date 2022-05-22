@@ -19,21 +19,21 @@ const Season = ({ year, total_rounds, winner, constructor }) => {
     }
 
     return <div class="season_results">
-        <u>{year}</u>
-        <br />
+        <h1><u>{year}</u></h1>
+
         Number of Rounds: {total_rounds}
         <br />
         Driver Champion: {winner.givenName + ' ' + winner.familyName}
         <button onClick={showDriverPopup}>Driver Information</button>
-        <br />
-        Constructor Champion: {constructor.name}
+        {/* <br/> */}
+        Manufacturer Driven: {constructor.name}
         <button onClick={showConstructorPopup}>Constructor Information</button>
         <div id={year.toString()} class="pop_up">
-            <Driver winner={winner}/>
+            <Driver winner={winner} />
             <button onClick={closePopUp}>Close Me!</button>
         </div>
         <div id={year.toString() + constructor.name} class="pop_up">
-            <Constructor constructor={constructor}/>
+            <Constructor constructor={constructor} />
             <button onClick={closePopUp}>Close Me!</button>
         </div>
     </div>

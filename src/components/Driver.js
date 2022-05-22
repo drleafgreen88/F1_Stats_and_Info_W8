@@ -4,8 +4,8 @@ const Driver = ({winner}) => {
 
 return (
 
-    <div>
-        <p>Driver Information</p>
+    <div class="details">
+        <h3>Driver Information</h3>
         <ul>
             <li>
                 Name: {winner.givenName + ' ' + winner.familyName}
