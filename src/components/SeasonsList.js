@@ -4,7 +4,7 @@ import Season from './Season';
 const SeasonList =({seasons}) => {
     
     const seasonNodes = seasons.map((season) => {
-        return <Season year={season.season} season_url={season.url} key={season.season} />
+        return <Season year={season.season} total_rounds={season.round} key={season.season} winner={season.DriverStandings[0].Driver} />
     })
 
     return (

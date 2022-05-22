@@ -12,16 +12,27 @@ const MainContainer = () => {
 
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(null);
+    // const [seasonResults, setSeasonResults] = useState([]);
 
     useEffect(() => {
         getSeasons();
     }, [])
 
+    // useEffect(() => {
+    //     getSeasonResults();
+    // }, [])
+
     const getSeasons = function () {
-        fetch("http://ergast.com/api/f1/seasons.json?limit=100")
+        fetch("https://ergast.com/api/f1/driverStandings/1.json?limit=1000")
         .then(response => response.json())
-        .then(seasons => setSeasons(seasons.MRData.SeasonTable.Seasons));
+        .then(seasons => setSeasons(seasons.MRData.StandingsTable.StandingsLists));
     }
+
+    // const getSeasonResults = function () {
+    //     fetch("http://ergast.com/api/f1/driverstandings/1.json?limit=100")
+    //     .then(response => response.json())
+    //     .then(seasonResults => setSeasonResults(seasonResults.MRData.DriverStandings.Seasons))
+    // }
 
     const onSeasonClick = function(season) {
         setSelectedSeason(season);

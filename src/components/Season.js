@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Season = ({season_url, year}) => {
+const Season = ({year, total_rounds, winner}) => {
 
     // const handleClick = function(){
     //     onSeasonClick(season_url);
+    // }
+
+
+    // const driverStandings = function () {
+    //     fetch("https://ergast.com/api/f1/"+year+"/driverStandings.json?limit=50")
+    //     .then(response => response.json())
+    //     .then(drivers => console.log(drivers.MRData.StandingsTable.DriverStandings));
     // }
 
 
@@ -12,7 +19,11 @@ const Season = ({season_url, year}) => {
     return <div class="season_results">
         {year}
         <br/>
-        <a href={season_url}>Season Recap</a>
+        {total_rounds}
+        <br/>
+        {winner.familyName}
+        {/* <a href={season_url} target="blank">Season Recap</a> */}
+        <div id={year.toString()} class="pop_up"><p>POP UP</p></div>
     </div> 
 }
 
