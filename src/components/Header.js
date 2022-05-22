@@ -1,11 +1,7 @@
 import React, {useState} from 'react'
+import { useModal } from '../hooks/useModal';
 
 const Header = ({user}) => {
-    // const [basketActive, setBasketActive] = useState(false)
-
-    // const handleBasketClick = () => {
-    //     setBasketActive(!basketActive)
-    // }
 
     return (
         <header>
@@ -15,9 +11,7 @@ const Header = ({user}) => {
             </hgroup>
             <div id="user-info">
                 <h3>Welcome back {user.name}!</h3>
-                {/* <h4>You have {user.basket.length} items in your basket.</h4>
-                <button onClick={handleBasketClick}>Go to Basket</button>
-                {basketActive && <Basket user={user}/>} */}
+                <h4>{user.email}</h4>
             </div>
         </header>
     )
