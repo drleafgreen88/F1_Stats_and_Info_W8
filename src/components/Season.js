@@ -4,6 +4,7 @@ import Constructor from './Constructor';
 
 const Season = ({ year, total_rounds, winner, constructor }) => {
 
+    //This function goes through the HTML elements with a class "pop_up" and puts them into an array. Then it iterates through each element to hide them.
     const showDriverPopup = function () {
         Array.from(document.getElementsByClassName("pop_up")).forEach(element => { element.style.display = "none" });
         document.getElementById(year).style.display = "block";
